@@ -1,0 +1,50 @@
+$breakpoints: (
+  'xs': (
+    min-width: 425px
+  ),
+  '600': (
+    min-width: 600px
+  ),
+  'sm': (
+    min-width: 767px
+  ),
+  'md': (
+    min-width: 992px
+  ),
+  'lg': (
+    min-width: 1200px
+  ),
+  'xl': (
+    min-width: 1431px
+  ),
+  '2xl': (
+    min-width: 2000px
+  )
+) !default;
+
+/// Mixin to manage responsive breakpoints
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin breakpoint($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin ellipseText($line) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

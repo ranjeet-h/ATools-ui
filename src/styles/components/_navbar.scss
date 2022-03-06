@@ -1,0 +1,43 @@
+.navBar {
+  height: 3rem;
+  background-color: #ffffff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  .navBar-heading__one {
+    font-size: 1.5rem;
+    color: #0d006e;
+    font-weight: bold;
+
+    .navBar-heading__one__dot {
+      color: #cc0707;
+      font-size: 1.5rem;
+    }
+  }
+
+  .navBar__links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .navBar__links__button__trial {
+      background-color: #0d006e;
+      color: #fff;
+      border: none;
+    }
+
+    .navBar__links__button__login {
+      color: #fff;
+      background: #ff5100;
+      border: none;
+    }
+  }
+}
